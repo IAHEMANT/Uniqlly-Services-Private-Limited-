@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uniqlly Services</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script src="https://unpkg.com/driver.js/dist/driver.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/driver.js/dist/driver.min.css">
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563eb',secondary:'#0ea5e9'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.glass-effect {
+background: rgba(255, 255, 255, 0.7);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<div class="relative min-h-screen w-[375px] mx-auto overflow-hidden bg-white">
+<!-- Login Screen -->
+<div id="loginScreen" class="min-h-screen flex flex-col">
+<!-- Background with 3D effect -->
+<div class="absolute inset-0 z-0 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=3D%20abstract%20background%20with%20floating%20geometric%20shapes%2C%20deep%20navy%20blue%20and%20golden%20gradient%2C%20modern%20luxury%20design%2C%20professional%20pattern%20with%20depth%20and%20dimension%2C%20elegant%20and%20premium%20look%2C%20suitable%20for%20high-end%20business%20services%2C%20dynamic%20composition&width=375&height=762&seq=bg3d&orientation=portrait" alt="Background" class="w-full h-full object-cover animate-pulse-slow">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/30"></div>
+<!-- Floating 3D Elements -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<img src="https://readdy.ai/api/search-image?query=3D%20geometric%20shape%2C%20transparent%20crystal%20cube%20with%20golden%20edges%2C%20minimalist%20design%2C%20floating%20in%20space%2C%20clear%20background&width=100&height=100&seq=cube1&orientation=squarish" alt="Floating Cube" class="absolute top-20 left-10 w-16 h-16 animate-float" style="animation-delay: 0s;">
+<img src="https://readdy.ai/api/search-image?query=3D%20geometric%20shape%2C%20transparent%20crystal%20sphere%20with%20blue%20glow%2C%20minimalist%20design%2C%20floating%20in%20space%2C%20clear%20background&width=80&height=80&seq=sphere1&orientation=squarish" alt="Floating Sphere" class="absolute top-40 right-10 w-12 h-12 animate-float" style="animation-delay: -2s;">
+<img src="https://readdy.ai/api/search-image?query=3D%20geometric%20shape%2C%20transparent%20crystal%20pyramid%20with%20golden%20edges%2C%20minimalist%20design%2C%20floating%20in%20space%2C%20clear%20background&width=120&height=120&seq=pyramid1&orientation=squarish" alt="Floating Pyramid" class="absolute bottom-40 left-20 w-20 h-20 animate-float" style="animation-delay: -4s;">
+</div>
+</div>
+<!-- Login Form -->
+<div class="relative z-10 flex-1 flex flex-col justify-center items-center px-8 pt-16 pb-20">
+<div class="w-full max-w-md">
+<!-- Logo -->
+<div class="text-center mb-8 fade-in">
+<div class="relative w-24 h-24 mx-auto mb-4">
+<div class="absolute inset-0 bg-primary/20 rounded-full animate-pulse-slow"></div>
+<img src="https://static.readdy.ai/image/0e3802f1139a9ab9a0edbc1f71c32aa8/8926536c615de42c3b4346a7588dd279.webp" alt="Uniqlly Services" class="relative h-full w-full object-contain animate-float">
+</div>
+<h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-primary animate-[gradient_8s_ease-in-out_infinite]">Uniqlly Services Private Limited</h1>
+<p class="mt-2 text-gray-600 font-light tracking-wide">Always For You</p>
+</div>
+<!-- Login Card -->
+<div class="glass-effect rounded-xl shadow-lg p-6 w-full border border-white border-opacity-20 transform transition-all duration-500 hover:scale-[1.02] slide-in" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);">
+<h2 class="text-2xl font-semibold text-gray-800 mb-6">Welcome Back</h2>
+<!-- Login Type Selector -->
+<div class="mb-6">
+<label class="block text-sm font-medium text-gray-700 mb-2">Login As</label>
+<div class="grid grid-cols-2 gap-2">
+<button id="adminBtn" class="py-2 px-4 bg-primary text-white rounded-button font-medium text-sm cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg relative overflow-hidden group">
+<span class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary via-blue-400 to-primary bg-[length:200%_100%] animate-[gradient_8s_ease-in-out_infinite]"></span>
+<span class="relative">Admin</span>
+</button>
+<button id="employeeBtn" class="py-2 px-4 bg-gray-200 text-gray-700 rounded-button font-medium text-sm cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-300">Employee</button>
+<button id="customerBtn" class="py-2 px-4 bg-gray-200 text-gray-700 rounded-button font-medium text-sm cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-300">Customer</button>
+<button id="guestBtn" class="py-2 px-4 bg-gray-200 text-gray-700 rounded-button font-medium text-sm cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-300">Guest</button>
+</div>
+</div>
+<!-- Login Form -->
+<form id="loginForm">
+<div class="mb-4">
+<label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<i class="ri-user-line text-gray-400"></i>
+</div>
+<input type="text" id="username" name="username" class="pl-10 pr-3 py-2 w-full border border-gray-300 rounded-button focus:ring-primary focus:border-primary" placeholder="Enter your username">
+</div>
+</div>
+<div class="mb-4">
+<label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<i class="ri-lock-line text-gray-400"></i>
+</div>
+<input type="password" id="password" name="password" class="pl-10 pr-3 py-2 w-full border border-gray-300 rounded-button focus:ring-primary focus:border-primary" placeholder="Enter your password">
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<i id="togglePassword" class="ri-eye-line text-gray-400 cursor-pointer"></i>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center">
+<input id="remember" name="remember" type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+<label for="remember" class="ml-2 block text-sm text-gray-700">Remember me</label>
+</div>
+<div>
+<a href="#" id="forgotPassword" class="text-sm font-medium text-primary hover:text-primary-dark">Forgot password?</a>
+</div>
+</div>
+<div>
+<button type="submit" id="loginButton" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-button shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary !rounded-button cursor-pointer relative overflow-hidden group">
+<span class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary via-blue-400 to-primary bg-[length:200%_100%] animate-[gradient_8s_ease-in-out_infinite]"></span>
+<span class="relative flex items-center justify-center">
+<i class="ri-login-circle-line mr-2"></i>
+Sign in
+</span>
+</button>
+</div>
+</form>
+<div id="errorMessage" class="mt-4 text-center text-red-500 text-sm hidden"></div>
+<div class="mt-6 text-center">
+<p class="text-sm text-gray-600">Don't have an account? <a href="#" id="signupLink" class="font-medium text-primary hover:text-primary-dark">Sign up</a></p>
+</div>
+</div>
+<!-- Security Notice -->
+<div class="mt-6 text-center">
+<p class="text-xs text-gray-500 flex items-center justify-center">
+<i class="ri-shield-check-line mr-1"></i> Secure login protected
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Screen (Initially Hidden) -->
+<div id="dashboardScreen" class="hidden min-h-screen flex flex-col">
+<!-- Nav Bar -->
+<div class="fixed top-0 w-full z-50 bg-white shadow-sm">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center">
+<button id="menuToggle" class="w-8 h-8 flex items-center justify-center mr-2 cursor-pointer">
+<i class="ri-menu-line text-gray-700 ri-lg"></i>
+</button>
+<div class="flex items-center">
+<img src="https://static.readdy.ai/image/0e3802f1139a9ab9a0edbc1f71c32aa8/8926536c615de42c3b4346a7588dd279.webp" alt="Uniqlly Services" class="h-8 mr-2">
+<h1 class="text-lg font-semibold text-primary">Uniqlly Services</h1>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<button class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-notification-3-line text-gray-700 ri-lg"></i>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white cursor-pointer">
+<span class="text-sm font-medium">A</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Menu (Initially Hidden) -->
+<div id="sidebarMenu" class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+<div class="absolute inset-0 bg-black bg-opacity-50" id="sidebarOverlay"></div>
+<div class="relative w-[280px] h-full bg-white shadow-lg flex flex-col">
+<!-- Sidebar Header -->
+<div class="p-4 border-b">
+<div class="flex items-center justify-between">
+<h1 class="font-['Pacifico'] text-2xl text-primary">logo</h1>
+<button id="closeSidebar" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line text-gray-700 ri-lg"></i>
+</button>
+</div>
+</div>
+<!-- User Info -->
+<div class="p-4 border-b">
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="text-lg font-medium">A</span>
+</div>
+<div class="ml-3">
+<p class="font-medium text-gray-800">Admin User</p>
+<p class="text-sm text-gray-500">admin@uniqlly.com</p>
+</div>
+</div>
+</div>
+<!-- Menu Items -->
+<div class="flex-1 overflow-y-auto py-2">
+<a href="#" class="flex items-center px-4 py-3 text-primary bg-blue-50">
+<i class="ri-dashboard-line ri-lg mr-3"></i>
+<span>Dashboard</span>
+</a>
+<a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+<i class="ri-user-settings-line ri-lg mr-3"></i>
+<span>User Management</span>
+</a>
+<a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+<i class="ri-customer-service-2-line ri-lg mr-3"></i>
+<span>CRM Management</span>
+</a>
+<a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+<i class="ri-money-dollar-circle-line ri-lg mr-3"></i>
+<span>Payroll Management</span>
+</a>
+<a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+<i class="ri-user-search-line ri-lg mr-3"></i>
+<span>Lead Generation</span>
+</a>
+<a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+<i class="ri-team-line ri-lg mr-3"></i>
+<span>HR Consultant</span>
+</a>
+<a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+<i class="ri-advertisement-line ri-lg mr-3"></i>
+<span>Marketing & Advertisement</span>
+</a>
+<a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+<i class="ri-settings-line ri-lg mr-3"></i>
+<span>Settings</span>
+</a>
+</div>
+<!-- Sidebar Footer -->
+<div class="p-4 border-t">
+<button id="logoutBtn" class="flex items-center text-red-500">
+<i class="ri-logout-box-line ri-lg mr-3"></i>
+<span>Logout</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 pt-16 pb-16">
+<!-- Welcome Section -->
+<div class="px-4 py-6">
+<h2 class="text-xl font-semibold text-gray-800">Welcome, Admin!</h2>
+<p class="text-gray-600">Friday, June 27, 2025</p>
+<!-- Stats Overview -->
+<div class="mt-6 grid grid-cols-2 gap-4 mb-8">
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 hover:shadow-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent pointer-events-none"></div>
+<div class="flex items-center justify-between relative">
+<div>
+<p class="text-gray-500 text-sm">Total Users</p>
+<p class="text-2xl font-semibold text-gray-800">1,284</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center text-white shadow-lg">
+<i class="ri-user-line ri-xl"></i>
+</div>
+</div>
+<div class="mt-2 flex items-center text-xs text-green-500">
+<i class="ri-arrow-up-line mr-1"></i>
+<span>12% from last month</span>
+</div>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-gray-500 text-sm">Revenue</p>
+<p class="text-2xl font-semibold text-gray-800">$48.5k</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-sky-400 flex items-center justify-center text-white shadow-lg">
+<i class="ri-money-dollar-circle-line ri-xl"></i>
+</div>
+</div>
+<div class="mt-2 flex items-center text-xs text-green-500">
+<i class="ri-arrow-up-line mr-1"></i>
+<span>8% from last month</span>
+</div>
+</div>
+</div>
+</div>
+<!-- AI System Section -->
+<div class="px-4 py-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-4">AI Assistant</h3>
+<div id="aiAssistant" class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center text-white shadow-lg">
+<i class="ri-robot-line ri-xl"></i>
+</div>
+<div class="ml-3">
+<h4 class="font-semibold text-gray-800">AI Assistant</h4>
+<p class="text-sm text-gray-600">Always ready to help</p>
+</div>
+</div>
+<button class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-settings-3-line"></i>
+</button>
+</div>
+<div class="bg-white rounded-lg p-4 mb-4">
+<div class="flex flex-col space-y-3">
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+<i class="ri-robot-line text-primary"></i>
+</div>
+<div class="ml-3 bg-gray-50 rounded-lg p-3 flex-1">
+<p class="text-sm text-gray-800">Hello! How can I assist you today?</p>
+</div>
+</div>
+<div class="flex items-start justify-end">
+<div class="mr-3 bg-primary bg-opacity-10 rounded-lg p-3 flex-1">
+<p class="text-sm text-gray-800">I need help with lead generation</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+<span class="text-sm text-white">U</span>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+<i class="ri-robot-line text-primary"></i>
+</div>
+<div class="ml-3 bg-gray-50 rounded-lg p-3 flex-1">
+<p class="text-sm text-gray-800">I can help you optimize your lead generation strategy. Would you like to see the latest analytics or create a new campaign?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<input type="text" placeholder="Type your message..." class="w-full pl-4 pr-12 py-2 border border-gray-200 rounded-full focus:ring-primary focus:border-primary text-sm">
+<button class="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-send-plane-fill"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Services Section -->
+<div class="px-4 py-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-4">Our Services</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20isometric%20illustration%2C%20CRM%20system%20dashboard%2C%20modern%20UI%20design%2C%20vibrant%20blue%20theme%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=128&height=128&seq=crm3d&orientation=squarish" alt="CRM" class="w-full h-full object-contain">
+</div>
+<h4 class="text-center font-semibold text-gray-800 mb-1">CRM Management</h4>
+<p class="text-xs text-center text-gray-600">Complete customer relationship management solution</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20isometric%20illustration%2C%20payroll%20and%20finance%20system%2C%20modern%20UI%20design%2C%20vibrant%20blue%20theme%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=128&height=128&seq=payroll3d&orientation=squarish" alt="Payroll" class="w-full h-full object-contain">
+</div>
+<h4 class="text-center font-semibold text-gray-800 mb-1">Payroll System</h4>
+<p class="text-xs text-center text-gray-600">Automated salary and compensation management</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20isometric%20illustration%2C%20lead%20generation%20funnel%2C%20modern%20UI%20design%2C%20vibrant%20blue%20theme%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=128&height=128&seq=lead3d&orientation=squarish" alt="Leads" class="w-full h-full object-contain">
+</div>
+<h4 class="text-center font-semibold text-gray-800 mb-1">Lead Generation</h4>
+<p class="text-xs text-center text-gray-600">Advanced lead tracking and conversion</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20isometric%20illustration%2C%20HR%20management%20system%2C%20modern%20UI%20design%2C%20vibrant%20blue%20theme%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=128&height=128&seq=hr3d&orientation=squarish" alt="HR" class="w-full h-full object-contain">
+</div>
+<h4 class="text-center font-semibold text-gray-800 mb-1">HR Consultant</h4>
+<p class="text-xs text-center text-gray-600">Complete human resource management</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20isometric%20illustration%2C%20digital%20marketing%20dashboard%2C%20modern%20UI%20design%2C%20vibrant%20blue%20theme%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=128&height=128&seq=marketing3d&orientation=squarish" alt="Marketing" class="w-full h-full object-contain">
+</div>
+<h4 class="text-center font-semibold text-gray-800 mb-1">Marketing</h4>
+<p class="text-xs text-center text-gray-600">Digital marketing and advertisement</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20isometric%20illustration%2C%20customer%20support%20system%2C%20modern%20UI%20design%2C%20vibrant%20blue%20theme%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=128&height=128&seq=support3d&orientation=squarish" alt="Support" class="w-full h-full object-contain">
+</div>
+<h4 class="text-center font-semibold text-gray-800 mb-1">Support</h4>
+<p class="text-xs text-center text-gray-600">24/7 customer support services</p>
+</div>
+</div>
+</div>
+<!-- Remove these duplicate service icons -->
+<div class="bg-white rounded-lg shadow p-3 flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20vector%20illustration%2C%20Lead%20generation%20icon%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=64&height=64&seq=lead1&orientation=squarish" alt="Leads" class="w-full h-full object-contain">
+</div>
+<p class="mt-2 text-xs text-center text-gray-700 font-medium white-space-nowrap overflow-hidden text-overflow-ellipsis">Leads</p>
+</div>
+<div class="bg-white rounded-lg shadow p-3 flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20vector%20illustration%2C%20HR%20consultant%20icon%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=64&height=64&seq=hr1&orientation=squarish" alt="HR" class="w-full h-full object-contain">
+</div>
+<p class="mt-2 text-xs text-center text-gray-700 font-medium white-space-nowrap overflow-hidden text-overflow-ellipsis">HR</p>
+</div>
+<div class="bg-white rounded-lg shadow p-3 flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20vector%20illustration%2C%20Marketing%20icon%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=64&height=64&seq=marketing1&orientation=squarish" alt="Marketing" class="w-full h-full object-contain"></div>
+<p class="mt-2 text-xs text-center text-gray-700 font-medium white-space-nowrap overflow-hidden text-overflow-ellipsis">Marketing</p>
+</div>
+<div class="bg-white rounded-lg shadow p-3 flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20vector%20illustration%2C%20Support%20icon%2C%20high-quality%20details%2C%20prominent%20main%20subject%2C%20clear%20and%20sharp%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20isolated%20on%20white%20background%2C%20centered%20composition%2C%20soft%20lighting%2C%20no%20shadows%2C%20no%20text%2C%20Content%20simple&width=64&height=64&seq=support1&orientation=squarish" alt="Support" class="w-full h-full object-contain">
+</div>
+<p class="mt-2 text-xs text-center text-gray-700 font-medium white-space-nowrap overflow-hidden text-overflow-ellipsis">Support</p>
+</div>
+</div>
+</div>
+<!-- Recent Activities -->
+<div class="px-4 py-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-semibold text-gray-800">Recent Activities</h3>
+<div class="flex items-center gap-2">
+<button id="exportExcel" class="flex items-center text-sm text-primary">
+<i class="ri-file-excel-2-line mr-1"></i>
+Export
+</button>
+<a href="#" class="text-sm text-primary">View All</a>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow divide-y">
+<div class="p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+<i class="ri-user-add-line text-primary"></i>
+</div>
+<div class="ml-3">
+<p class="text-sm text-gray-800">New customer <span class="font-medium">James Wilson</span> registered</p>
+<p class="text-xs text-gray-500 mt-1">2 hours ago</p>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+<i class="ri-money-dollar-circle-line text-secondary"></i>
+</div>
+<div class="ml-3">
+<p class="text-sm text-gray-800">New payment of <span class="font-medium">$1,250</span> received from <span class="font-medium">Acme Corp</span></p>
+<p class="text-xs text-gray-500 mt-1">5 hours ago</p>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0">
+<i class="ri-file-list-3-line text-yellow-600"></i>
+</div>
+<div class="ml-3">
+<p class="text-sm text-gray-800">New lead assigned to <span class="font-medium">Sarah Parker</span></p>
+<p class="text-xs text-gray-500 mt-1">Yesterday</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Database Status -->
+<div class="px-4 py-4 bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg mb-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-semibold text-gray-800">Database Status</h3>
+<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Connected</span>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="text-center">
+<p class="text-2xl font-semibold text-primary">2,456</p>
+<p class="text-xs text-gray-600">Total Records</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-semibold text-secondary">98%</p>
+<p class="text-xs text-gray-600">Sync Rate</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-semibold text-green-600">24/7</p>
+<p class="text-xs text-gray-600">Uptime</p>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="px-4 py-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-primary text-white p-3 rounded-lg flex items-center justify-center !rounded-button cursor-pointer">
+<i class="ri-robot-line mr-2"></i>
+<span>AI Chat</span>
+</button>
+<button class="bg-secondary text-white p-3 rounded-lg flex items-center justify-center !rounded-button cursor-pointer">
+<i class="ri-customer-service-2-line mr-2"></i>
+<span>New Client</span>
+</button>
+<button class="bg-white text-gray-700 border border-gray-200 p-3 rounded-lg flex items-center justify-center !rounded-button cursor-pointer">
+<i class="ri-file-list-3-line mr-2 text-primary"></i>
+<span>Create Report</span>
+</button>
+<button class="bg-white text-gray-700 border border-gray-200 p-3 rounded-lg flex items-center justify-center !rounded-button cursor-pointer">
+<i class="ri-settings-line mr-2 text-gray-500"></i>
+<span>Settings</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tab Bar -->
+<div class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-40">
+<div class="grid grid-cols-5 h-16">
+<a href="#" class="flex flex-col items-center justify-center text-primary">
+<i class="ri-robot-line ri-lg"></i>
+<span class="text-xs mt-1">AI</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<i class="ri-user-search-line ri-lg"></i>
+<span class="text-xs mt-1">Leads</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<i class="ri-customer-service-2-line ri-lg"></i>
+<span class="text-xs mt-1">Clients</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<i class="ri-file-list-3-line ri-lg"></i>
+<span class="text-xs mt-1">Reports</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<i class="ri-user-line ri-lg"></i>
+<span class="text-xs mt-1">Profile</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Password Reset Modal (Initially Hidden) -->
+<div id="passwordResetModal" class="fixed inset-0 z-50 hidden">
+<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+<div class="relative w-full max-w-md mx-auto mt-20 px-4">
+<div class="bg-white rounded-xl shadow-lg p-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-gray-800">Reset Password</h3>
+<button id="closeResetModal" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line text-gray-700 ri-lg"></i>
+</button>
+</div>
+<form id="resetPasswordForm">
+<div class="mb-4">
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+<input type="email" id="email" name="email" class="px-3 py-2 w-full border border-gray-300 rounded-button focus:ring-primary focus:border-primary" placeholder="Enter your email">
+</div>
+<div class="mt-6">
+<button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-button shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary !rounded-button cursor-pointer">
+Send Reset Link
+</button>
+</div>
+</form>
+<div class="mt-4 text-center">
+<p class="text-sm text-gray-600">Remember your password? <a href="#" id="backToLogin" class="font-medium text-primary hover:text-primary-dark">Back to login</a></p>
+</div>
+</div>
+</div>
+</div>
+<!-- First Login Password Change Modal (Initially Hidden) -->
+<div id="firstLoginModal" class="fixed inset-0 z-50 hidden">
+<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+<div class="relative w-full max-w-md mx-auto mt-20 px-4">
+<div class="bg-white rounded-xl shadow-lg p-6">
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800">Change Your Password</h3>
+<p class="text-sm text-gray-600 mt-1">For security reasons, you need to change your password on first login.</p>
+</div>
+<form id="changePasswordForm">
+<div class="mb-4">
+<label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<i class="ri-lock-line text-gray-400"></i>
+</div>
+<input type="password" id="newPassword" name="newPassword" class="pl-10 pr-3 py-2 w-full border border-gray-300 rounded-button focus:ring-primary focus:border-primary" placeholder="Enter new password">
+</div>
+<p class="text-xs text-gray-500 mt-1">Password must be at least 8 characters with uppercase, lowercase, number and special character.</p>
+</div>
+<div class="mb-4">
+<label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<i class="ri-lock-line text-gray-400"></i>
+</div>
+<input type="password" id="confirmPassword" name="confirmPassword" class="pl-10 pr-3 py-2 w-full border border-gray-300 rounded-button focus:ring-primary focus:border-primary" placeholder="Confirm new password">
+</div>
+</div>
+<div class="mb-4">
+<label for="securityQuestion" class="block text-sm font-medium text-gray-700 mb-1">Security Question</label>
+<select id="securityQuestion" name="securityQuestion" class="px-3 py-2 w-full border border-gray-300 rounded-button focus:ring-primary focus:border-primary">
+<option value="">Select a security question</option>
+<option value="pet">What was your first pet's name?</option>
+<option value="school">What was the name of your first school?</option>
+<option value="city">In which city were you born?</option>
+<option value="mother">What is your mother's maiden name?</option>
+</select>
+</div>
+<div class="mb-6">
+<label for="securityAnswer" class="block text-sm font-medium text-gray-700 mb-1">Security Answer</label>
+<input type="text" id="securityAnswer" name="securityAnswer" class="px-3 py-2 w-full border border-gray-300 rounded-button focus:ring-primary focus:border-primary" placeholder="Enter your answer">
+</div>
+<div>
+<button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-button shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary !rounded-button cursor-pointer">
+Change Password & Continue
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Login Type Selection Script -->
+<script id="loginTypeScript">
+document.addEventListener('DOMContentLoaded', function() {
+const loginTypeButtons = [
+document.getElementById('adminBtn'),
+document.getElementById('employeeBtn'),
+document.getElementById('customerBtn'),
+document.getElementById('guestBtn')
+];
+loginTypeButtons.forEach(button => {
+button.addEventListener('click', function() {
+// Reset all buttons
+loginTypeButtons.forEach(btn => {
+btn.classList.remove('bg-primary', 'text-white');
+btn.classList.add('bg-gray-200', 'text-gray-700');
+});
+// Set active button
+this.classList.remove('bg-gray-200', 'text-gray-700');
+this.classList.add('bg-primary', 'text-white');
+});
+});
+});
+</script>
+<!-- Password Toggle Script -->
+<script id="passwordToggleScript">
+document.addEventListener('DOMContentLoaded', function() {
+const togglePassword = document.getElementById('togglePassword');
+const password = document.getElementById('password');
+if (togglePassword && password) {
+togglePassword.addEventListener('click', function() {
+const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+password.setAttribute('type', type);
+// Toggle icon
+this.classList.toggle('ri-eye-line');
+this.classList.toggle('ri-eye-off-line');
+});
+}
+});
+</script>
+<!-- Login Form Handling Script -->
+<script id="loginFormScript">
+document.addEventListener('DOMContentLoaded', function() {
+const loginForm = document.getElementById('loginForm');
+const errorMessage = document.getElementById('errorMessage');
+const loginScreen = document.getElementById('loginScreen');
+const dashboardScreen = document.getElementById('dashboardScreen');
+const firstLoginModal = document.getElementById('firstLoginModal');
+if (loginForm) {
+loginForm.addEventListener('submit', function(event) {
+event.preventDefault();
+const username = document.getElementById('username').value;
+const password = document.getElementById('password').value;
+// Simple validation
+if (!username || !password) {
+errorMessage.textContent = 'Please enter both username and password';
+errorMessage.classList.remove('hidden');
+return;
+}
+// Check if it's the admin credentials
+if (username === 'Admin123' && password === 'Admin123') {
+// Show first login modal for password change
+firstLoginModal.classList.remove('hidden');
+} else {
+errorMessage.textContent = 'Invalid username or password';
+errorMessage.classList.remove('hidden');
+}
+});
+}
+});
+</script>
+<!-- First Login Password Change Script -->
+<script id="firstLoginScript">
+document.addEventListener('DOMContentLoaded', function() {
+const changePasswordForm = document.getElementById('changePasswordForm');
+const firstLoginModal = document.getElementById('firstLoginModal');
+const loginScreen = document.getElementById('loginScreen');
+const dashboardScreen = document.getElementById('dashboardScreen');
+if (changePasswordForm) {
+changePasswordForm.addEventListener('submit', function(event) {
+event.preventDefault();
+const newPassword = document.getElementById('newPassword').value;
+const confirmPassword = document.getElementById('confirmPassword').value;
+const securityQuestion = document.getElementById('securityQuestion').value;
+const securityAnswer = document.getElementById('securityAnswer').value;
+// Simple validation
+if (!newPassword || !confirmPassword || !securityQuestion || !securityAnswer) {
+// Show error (would add proper error display in a real implementation)
+return;
+}
+if (newPassword !== confirmPassword) {
+// Show error that passwords don't match
+return;
+}
+if (newPassword === 'Admin123') {
+// Show error that new password can't be the same as old
+return;
+}
+// Password complexity check (simplified)
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+if (!passwordRegex.test(newPassword)) {
+// Show error about password requirements
+return;
+}
+// If all validation passes, proceed to dashboard
+firstLoginModal.classList.add('hidden');
+loginScreen.classList.add('hidden');
+dashboardScreen.classList.remove('hidden');
+});
+}
+});
+</script>
+<!-- Forgot Password Script -->
+<script id="forgotPasswordScript">
+document.addEventListener('DOMContentLoaded', function() {
+const forgotPasswordLink = document.getElementById('forgotPassword');
+const passwordResetModal = document.getElementById('passwordResetModal');
+const closeResetModal = document.getElementById('closeResetModal');
+const backToLogin = document.getElementById('backToLogin');
+const resetPasswordForm = document.getElementById('resetPasswordForm');
+if (forgotPasswordLink) {
+forgotPasswordLink.addEventListener('click', function(event) {
+event.preventDefault();
+passwordResetModal.classList.remove('hidden');
+});
+}
+if (closeResetModal) {
+closeResetModal.addEventListener('click', function() {
+passwordResetModal.classList.add('hidden');
+});
+}
+if (backToLogin) {
+backToLogin.addEventListener('click', function(event) {
+event.preventDefault();
+passwordResetModal.classList.add('hidden');
+});
+}
+if (resetPasswordForm) {
+resetPasswordForm.addEventListener('submit', function(event) {
+event.preventDefault();
+const email = document.getElementById('email').value;
+if (!email) {
+// Show error
+return;
+}
+// Show success message and close modal
+passwordResetModal.classList.add('hidden');
+// Would normally show a success message here
+});
+}
+});
+</script>
+<!-- Sidebar Menu Script -->
+<script id="sidebarScript">
+document.addEventListener('DOMContentLoaded', function() {
+const menuToggle = document.getElementById('menuToggle');
+const closeSidebar = document.getElementById('closeSidebar');
+const sidebarMenu = document.getElementById('sidebarMenu');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+if (menuToggle) {
+menuToggle.addEventListener('click', function() {
+sidebarMenu.classList.remove('-translate-x-full');
+});
+}
+if (closeSidebar) {
+closeSidebar.addEventListener('click', function() {
+sidebarMenu.classList.add('-translate-x-full');
+});
+}
+if (sidebarOverlay) {
+sidebarOverlay.addEventListener('click', function() {
+sidebarMenu.classList.add('-translate-x-full');
+});
+}
+});
+</script>
+<!-- Tour Guide Script -->
+<script id="tourGuideScript">
+document.addEventListener('DOMContentLoaded', function() {
+if (!localStorage.getItem('tourCompleted')) {
+const driver = new Driver({
+animate: true,
+opacity: 0.8,
+padding: 10,
+showButtons: true,
+});
+const steps = [
+{
+element: '#menuToggle',
+popover: {
+title: 'Menu Navigation',
+description: 'Click here to access all features and services',
+position: 'right'
+}
+},
+{
+element: '.grid.grid-cols-2.gap-4',
+popover: {
+title: 'Service Overview',
+description: 'Explore our comprehensive business solutions',
+position: 'bottom'
+}
+},
+{
+element: '#aiAssistant',
+popover: {
+title: 'AI Assistant',
+description: 'Get instant help with our AI-powered assistant',
+position: 'top'
+}
+}
+];
+const audio = new Audio('data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAABQADw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8VFRUVFRUVFRUVFRUVFRUVFRUVFRUVFR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eJycnJycnJycnJycnJycnJycnJycnJycwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/jOMAAAACVgGqBAAAAACqAVYC7EAACqBVgLsQABVAqwF2IAAqgVYC7EAAVQKsBdiAA');
+let currentStep = 0;
+driver.onHighlightStarted(() => {
+if (currentStep < steps.length) {
+audio.play();
+currentStep++;
+}
+});
+driver.defineSteps(steps);
+setTimeout(() => {
+driver.start();
+localStorage.setItem('tourCompleted', 'true');
+}, 1000);
+}
+});
+</script>
+<!-- Logout Script -->
+<script id="logoutScript">
+document.addEventListener('DOMContentLoaded', function() {
+const logoutBtn = document.getElementById('logoutBtn');
+const loginScreen = document.getElementById('loginScreen');
+const dashboardScreen = document.getElementById('dashboardScreen');
+if (logoutBtn) {
+logoutBtn.addEventListener('click', function() {
+// Reset form fields
+document.getElementById('username').value = '';
+document.getElementById('password').value = '';
+document.getElementById('errorMessage').classList.add('hidden');
+// Switch screens
+dashboardScreen.classList.add('hidden');
+loginScreen.classList.remove('hidden');
+// Close sidebar if open
+document.getElementById('sidebarMenu').classList.add('-translate-x-full');
+});
+}
+});
+</script>
+<!-- Data Management Modal -->
+<div id="dataManagementModal" class="fixed inset-0 z-50 hidden">
+<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+<div class="relative w-full max-w-4xl mx-auto mt-10 px-4">
+<div class="bg-white rounded-xl shadow-lg p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-semibold text-gray-800">Data Management</h3>
+<button id="closeDataModal" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line text-gray-700 ri-lg"></i>
+</button>
+</div>
+<div class="mb-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center space-x-2">
+<input type="text" placeholder="Search records..." class="px-3 py-2 border border-gray-300 rounded-button focus:ring-primary focus:border-primary text-sm">
+<button class="px-3 py-2 bg-primary text-white rounded-button text-sm">Search</button>
+</div>
+<div class="flex items-center space-x-2">
+<button id="syncData" class="flex items-center px-3 py-2 bg-secondary text-white rounded-button text-sm">
+<i class="ri-refresh-line mr-1"></i>
+Sync
+</button>
+<button id="downloadTemplate" class="flex items-center px-3 py-2 border border-gray-300 text-gray-700 rounded-button text-sm">
+<i class="ri-download-line mr-1"></i>
+Template
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-gray-200">
+<thead class="bg-gray-50">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+</tr>
+</thead>
+<tbody class="bg-white divide-y divide-gray-200" id="dataTable">
+<!-- Data rows will be dynamically inserted here -->
+</tbody>
+</table>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center text-sm text-gray-700">
+<span>Showing 1 to 10 of 100 entries</span>
+</div>
+<div class="flex items-center space-x-2">
+<button class="px-3 py-1 border border-gray-300 rounded-button text-sm">Previous</button>
+<button class="px-3 py-1 bg-primary text-white rounded-button text-sm">1</button>
+<button class="px-3 py-1 border border-gray-300 rounded-button text-sm">2</button>
+<button class="px-3 py-1 border border-gray-300 rounded-button text-sm">3</button>
+<button class="px-3 py-1 border border-gray-300 rounded-button text-sm">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Management Script -->
+<script id="dataManagementScript">
+document.addEventListener('DOMContentLoaded', function() {
+const exportExcel = document.getElementById('exportExcel');
+const dataManagementModal = document.getElementById('dataManagementModal');
+const closeDataModal = document.getElementById('closeDataModal');
+const dataTable = document.getElementById('dataTable');
+// Sample data
+const sampleData = [
+{ id: 1, type: 'Customer', name: 'Emily Thompson', status: 'Active', date: '2025-06-27' },
+{ id: 2, type: 'Lead', name: 'Michael Chen', status: 'Pending', date: '2025-06-27' },
+{ id: 3, type: 'Employee', name: 'Sarah Johnson', status: 'Active', date: '2025-06-26' },
+{ id: 4, type: 'Customer', name: 'David Rodriguez', status: 'Inactive', date: '2025-06-26' },
+{ id: 5, type: 'Lead', name: 'Lisa Anderson', status: 'Active', date: '2025-06-25' }
+];
+// Populate table
+function populateTable() {
+dataTable.innerHTML = sampleData.map(item => `
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.id}</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.type}</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.name}</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+item.status === 'Active' ? 'bg-green-100 text-green-800' :
+item.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' :
+'bg-red-100 text-red-800'
+}">${item.status}</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.date}</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+<button class="text-primary hover:text-primary-dark mr-3">Edit</button>
+<button class="text-red-600 hover:text-red-900">Delete</button>
+</td>
+</tr>
+`).join('');
+}
+// Export to Excel function
+function exportToExcel() {
+let csvContent = "data:text/csv;charset=utf-8,";
+csvContent += "ID,Type,Name,Status,Date\n";
+sampleData.forEach(item => {
+csvContent += `${item.id},${item.type},${item.name},${item.status},${item.date}\n`;
+});
+const encodedUri = encodeURI(csvContent);
+const link = document.createElement("a");
+link.setAttribute("href", encodedUri);
+link.setAttribute("download", "uniqlly_data.csv");
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+}
+// Event listeners
+if (exportExcel) {
+exportExcel.addEventListener('click', function() {
+dataManagementModal.classList.remove('hidden');
+populateTable();
+});
+}
+if (closeDataModal) {
+closeDataModal.addEventListener('click', function() {
+dataManagementModal.classList.add('hidden');
+});
+}
+// Initialize
+populateTable();
+});
+</script>
+</body>
+</html>
